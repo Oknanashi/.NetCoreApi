@@ -1,0 +1,11 @@
+C:\Users\Kirill\source\repos\KirillProject\Persistence\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.csprojAssemblyReference.cache
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfoInputs.cache
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.AssemblyInfo.cs
+C:\Users\Kirill\source\repos\KirillProject\Persistence\bin\Debug\netcoreapp3.1\Persistence.deps.json
+C:\Users\Kirill\source\repos\KirillProject\Persistence\bin\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\Kirill\source\repos\KirillProject\Persistence\bin\Debug\netcoreapp3.1\Persistence.pdb
+C:\Users\Kirill\source\repos\KirillProject\Persistence\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.csproj.CopyComplete
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.dll
+C:\Users\Kirill\source\repos\KirillProject\Persistence\obj\Debug\netcoreapp3.1\Persistence.pdb

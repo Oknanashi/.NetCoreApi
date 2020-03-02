@@ -1,0 +1,8 @@
+C:\Users\Kirill\source\repos\KirillProject\Domain\bin\Debug\netcoreapp3.1\Domain.deps.json
+C:\Users\Kirill\source\repos\KirillProject\Domain\bin\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Kirill\source\repos\KirillProject\Domain\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Kirill\source\repos\KirillProject\Domain\obj\Debug\netcoreapp3.1\Domain.csprojAssemblyReference.cache
+C:\Users\Kirill\source\repos\KirillProject\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+C:\Users\Kirill\source\repos\KirillProject\Domain\obj\Debug\netcoreapp3.1\Domain.AssemblyInfo.cs
+C:\Users\Kirill\source\repos\KirillProject\Domain\obj\Debug\netcoreapp3.1\Domain.dll
+C:\Users\Kirill\source\repos\KirillProject\Domain\obj\Debug\netcoreapp3.1\Domain.pdb

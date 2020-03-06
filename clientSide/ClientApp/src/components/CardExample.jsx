@@ -1,8 +1,8 @@
-import React, {  useContext } from "react";
+import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link} from "react-router-dom";
 import styled from "styled-components";
-import UserContext,{UserConsumer} from "./../UserContext";
+import {UserConsumer} from "./../UserContext";
 
 const CenteredRow = styled.div`
   margin-top: 5em;
@@ -64,6 +64,7 @@ const CardExample = ({removeUser}) => {
                 <span className="date">Registered: {user.CreatedAt}</span>
               </Card.Meta>
               <Card.Description>{user.Bio}</Card.Description>
+              {user.EmployeeCompany != null && (<Card.Description>{user.EmployeeCompany.CompanyName}</Card.Description>)}
             </Card.Content>
             <Card.Content extra>
               <a>

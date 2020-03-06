@@ -22,6 +22,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
+using System.Text.Json;
+using Newtonsoft.Json;
 
 namespace KirillProject
 {
@@ -56,7 +58,7 @@ namespace KirillProject
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 opt.Filters.Add(new AuthorizeFilter(policy));
-            });
+            }).AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);;
             services.AddSwaggerGen(c =>
             {
                 c.CustomSchemaIds((type) => type.FullName);

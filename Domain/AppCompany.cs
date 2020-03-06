@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
-    public class Company
+    public class AppCompany
     {
         // [Key]
         [Column("CompanyId")]
@@ -13,7 +13,8 @@ namespace Domain
 
         public string CompanyName { get; set; }
         
-        
+        public string Address {get;set;}
+        public string CompanySector {get;set;}
         public  virtual ICollection<AppUser> AppUsers { get; set; }
     }
 }

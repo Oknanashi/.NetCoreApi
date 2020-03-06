@@ -20,7 +20,7 @@ namespace Domain
 
         
         
-        public virtual Company EmployeeCompany { get; set; }
+        public virtual AppCompany EmployeeCompany { get; set; }
         
         
     }

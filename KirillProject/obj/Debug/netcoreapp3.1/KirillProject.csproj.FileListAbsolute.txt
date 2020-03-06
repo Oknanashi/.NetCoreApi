@@ -185,3 +185,6 @@ C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1
 C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Application.pdb
 C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Infrastructure.pdb
 C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Domain.pdb
+C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Kirill\source\repos\KirillProject\KirillProject\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

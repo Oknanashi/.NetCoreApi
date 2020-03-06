@@ -73,7 +73,7 @@ export const NavBar = ({ accessor, setToken }) => {
           )}
           {user && (
             <div style={{display:"flex",alignItems:"center"}}>
-              <a class="ui image label" fluid>
+              <a className="ui image label" fluid="true">
                 {user.username} <br/>
                 as {user.role}
               </a>

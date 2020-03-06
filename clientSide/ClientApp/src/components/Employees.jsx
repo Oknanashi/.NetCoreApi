@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Grid, Segment, Container,Select } from "semantic-ui-react";
-import UserContext from "./../UserContext";
+import React, {  useEffect, useState } from "react";
+import { Select } from "semantic-ui-react";
+
 import { withRouter } from "react-router-dom";
-import styled from "styled-components";
+
 import axios from "axios";
 
-const WrappingComponent = styled.div`
-  p {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-`;
+// const WrappingComponent = styled.div`
+//   p {
+//     overflow-wrap: break-word;
+//     word-wrap: break-word;
+//     hyphens: auto;
+//   }
+// `;
 
+//Hardcoded but can be easily fetched from the database
 const roleOptions = [
     { key: 'Admin', value: 'Admin', text: 'Admin' },
     { key: 'Member', value: 'Member', text: 'Member' },
@@ -20,10 +21,10 @@ const roleOptions = [
    
   ]
 
-const Employees = ({ match, history }) => {
-  const userStore = useContext(UserContext);
+const Employees = () => {
+  // const userStore = useContext(UserContext);
   const [employees, setEmployees] = useState();
-  const [employeeRole,setRole]=useState();
+  // const [employeeRole,setRole]=useState();
 
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const Employees = ({ match, history }) => {
         }
       })
       .then(data => {
+        
         setEmployees(data.data);
         console.log(data);
       });
@@ -55,11 +57,11 @@ const Employees = ({ match, history }) => {
 
   console.log(employees);
   return (
-    <div class="ui celled list">
+    <div className="ui celled list">
       {employees ? employees.map(employee=>(
-          <div class="item" style={{display:"flex",WebkitJustifyContent:"space-between"}} key={employee.id}>
-          <div class="content">
-            <div class="header">{employee.userName}</div>
+          <div className="item" style={{display:"flex",WebkitJustifyContent:"space-between"}} key={employee.id}>
+          <div className="content">
+            <div className="header">{employee.userName}</div>
             {employee.email}
           </div>
           <Select placeholder='Change Role of the employee' options={roleOptions} defaultValue={employee.role} onChange={value=>editRole(value.target.children[0].outerText,employee)} />

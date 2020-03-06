@@ -17,7 +17,7 @@ namespace Persistence
        
         public DbSet<AppUser> AppUsers { get; set; }
        
-        public DbSet<Company> Companies { get; set; }
+        public DbSet<AppCompany> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -25,7 +25,7 @@ namespace Persistence
             
             // builder.Entity<AppEmployee>(x => x.HasKey(ua => new {  ua.CompanyId }));
             
-            builder.Entity<Company>()
+            builder.Entity<AppCompany>()
             .HasMany(c=>c.AppUsers)
             .WithOne(e=>e.EmployeeCompany);
 

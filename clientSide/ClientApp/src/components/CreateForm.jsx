@@ -1,10 +1,11 @@
 import React,{useState} from "react";
 import {Form,Button} from 'semantic-ui-react';
+import { CompaniesSelect } from "./CompaniesSelect";
 
 export const CreateForm = ({handleSubmit}) => {
     const [userValue,setUserValue] = useState({});
 
-    const finalSubmit =()=>handleSubmit(userValue);
+    const finalSubmit =()=>handleSubmit(userValue,"User");
     
   return (
     <Form onSubmit={finalSubmit}>
@@ -31,6 +32,7 @@ export const CreateForm = ({handleSubmit}) => {
         onChange={(e)=>userValue.Bio = e.currentTarget.value}
         value={userValue.Bio}/>
       </Form.Field>
+      <CompaniesSelect type={"empty"}/>
       <Button type="submit">Submit</Button>
     </Form>
   );

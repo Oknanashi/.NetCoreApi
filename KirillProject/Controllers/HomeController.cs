@@ -66,6 +66,13 @@ namespace KirillProject.Controllers
         {
             return await Mediator.Send(command);
         }
+         [HttpPost("updateUser")]
+        [AllowAnonymous]
+        public async Task<ActionResult<AppUser>> UpdateCompany(UpdateUser.Command command)
+        {
+            
+            return await Mediator.Send(command);
+        }
 
 
         [HttpGet("testregister")]
@@ -79,5 +86,7 @@ namespace KirillProject.Controllers
         {
             return await Mediator.Send(new Delete.Command { Id = id });
         }
+
+        
     }
 }

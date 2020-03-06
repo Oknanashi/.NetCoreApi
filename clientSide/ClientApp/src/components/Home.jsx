@@ -1,22 +1,19 @@
-﻿import React, {  Fragment ,useContext} from "react";
+﻿import React, { Fragment, useContext } from "react";
 import CardExample from "./CardExample";
 
 import { CreateForm } from "./CreateForm";
-import  UserContext  from "./../UserContext";
-import {
+import { CreateCompany } from "./CreateCompany";
+import { withRouter } from "react-router-dom";
+
+const Home = ({ removeUser, handleSubmit }) => {
   
-  withRouter,
-
-} from "react-router-dom";
-
-
-const Home = ({removeUser,handleSubmit}) => {
-  const dataContext = useContext(UserContext);
-
-
+  
   return (
     <Fragment>
-      <CreateForm handleSubmit={handleSubmit} />
+      <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <CreateForm handleSubmit={handleSubmit} />
+        <CreateCompany handleSubmit={handleSubmit} />
+      </div>
       <CardExample removeUser={removeUser} />
     </Fragment>
   );

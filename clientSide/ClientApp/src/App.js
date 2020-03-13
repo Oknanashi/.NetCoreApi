@@ -48,11 +48,17 @@ const App = ()=> {
   }, [accessor]);
 
   const notifyErrors = (errors)=>{
-    if(errors){
+    if(typeof errors =="string"){
+      toast.error(errors)
+    }
+    else if(Object.entries(errors).length>1){
       {for (var [key,value] of Object.entries(errors)){
         toast.error(value[0])
     }}
-    } else {
+    } else if(Object.entries(errors).length===1){
+      
+      toast.error(errors[Object.keys(errors)[0]])
+    }else {
       toast.error("Undefined error")
     }
   }
@@ -151,6 +157,7 @@ const App = ()=> {
           history.push('/')
           notifySuccess("You were successfully registered");
         }).catch(e=>{
+          console.log(e.response.data.errors)
           notifyErrors(e.response.data.errors)
         })
     }
@@ -170,7 +177,7 @@ const App = ()=> {
   }
     
     return (
-      <UserProvider value={{users,notifySuccess,notifyErrors}}  >
+      <UserProvider value={{users,notifySuccess,notifyErrors,setConfig}}  >
         <Container fluid="true">         
           <NavBar accessor={accessor} setToken={setToken}/>
           <ToastContainer autoClose={2000}/>

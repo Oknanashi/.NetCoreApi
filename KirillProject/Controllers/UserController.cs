@@ -88,10 +88,11 @@ namespace KirillProject.Controllers
 
         }
 
-        [HttpGet("test")]
-        [AllowAnonymous]
-        public  string Test(){
-            return "test";
+        [HttpDelete("{id}")]
+        
+        public async Task<ActionResult<Unit>> Delete(Guid id)
+        {
+            return await Mediator.Send(new DeleteEmployee.Command { Id = id });
         }
 
 

@@ -57,7 +57,7 @@ export const CompaniesSelect = ({ userDetails,onChangeCompany,type,finalSubmit }
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={company}
-        onChange={onChangeCompany,(e)=>finalSubmit(companies.find(x=>x.CompanyName==e.target.value))}
+        onChange={onChangeCompany,(e)=>finalSubmit(companies.find(x=>x.CompanyName===e.target.value))}
         
       >
         {companies.map(company => (

@@ -1,27 +1,29 @@
-import React, {  useState } from "react";
+import React, { useState,useEffect } from "react";
 
 import { Form, Button } from "semantic-ui-react";
 import { withRouter } from "react-router-dom";
 
-const RegisterForm = ({registerUser,userValues}) => {
+const RegisterForm = ({ registerUser, userValues }) => {
   const [userValue, setUserValue] = useState({});
 
-  const submitRegister = (userValue)=>registerUser(userValue);
-  console.log(userValues)
-  const userInput = {
-    Email: userValues.Email || '',
-    Username:userValues.Username || '',
-    Password:userValues.Password ||''
-  }
+  const submitRegister = userValue => registerUser(userValue);
+  useEffect(() => {
+    console.log(userValues);
+    const userInput = {
+      Email: userValues.Email || "",
+      Username: userValues.Username || "",
+      Password: userValues.Password || ""
+    };
+    setUserValue(userInput) 
+  },[]);
   return (
-    <Form onSubmit={()=>submitRegister(userValue)}>
-      
+    <Form onSubmit={() => submitRegister(userValue)}>
       <Form.Field>
         <label>Email</label>
         <input
           placeholder="Email"
           type="email"
-          defaultValue={ userInput.Email}
+          defaultValue={userValue.Email}
           onChange={e => (userValue.Email = e.currentTarget.value)}
         />
       </Form.Field>
@@ -29,7 +31,7 @@ const RegisterForm = ({registerUser,userValues}) => {
         <label>Username</label>
         <input
           placeholder="Username"
-          defaultValue={  userInput.Username}
+          defaultValue={userValue.Username}
           onChange={e => (userValue.Username = e.currentTarget.value)}
         />
       </Form.Field>
@@ -38,7 +40,7 @@ const RegisterForm = ({registerUser,userValues}) => {
         <input
           type="password"
           placeholder="Your password"
-          defaultValue={  userInput.Password}
+          defaultValue={userValue.Password}
           onChange={e => (userValue.Password = e.currentTarget.value)}
         />
       </Form.Field>

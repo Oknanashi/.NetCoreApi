@@ -5,7 +5,20 @@ import { CompaniesSelect } from "./CompaniesSelect";
 export const CreateForm = ({handleSubmit}) => {
     const [userValue,setUserValue] = useState({});
 
-    const finalSubmit =()=>handleSubmit(userValue,"User");
+    const finalSubmit =()=>{
+      
+      console.log(userValue)
+      handleSubmit(userValue,"User")
+    };
+
+    const setCompany = (company)=>{
+      console.log(company)
+      userValue.Company=company;
+      console.log(userValue.Company);
+      
+    }
+
+
     
   return (
     <Form onSubmit={finalSubmit}>
@@ -32,7 +45,7 @@ export const CreateForm = ({handleSubmit}) => {
         onChange={(e)=>userValue.Bio = e.currentTarget.value}
         value={userValue.Bio}/>
       </Form.Field>
-      <CompaniesSelect type={"empty"}/>
+      <CompaniesSelect type={"empty"} finalSubmit={setCompany}/>
       <Button type="submit">Submit</Button>
     </Form>
   );

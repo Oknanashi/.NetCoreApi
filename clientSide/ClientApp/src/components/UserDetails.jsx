@@ -19,13 +19,13 @@ const WrappingComponent = styled.div`
 `
 
 const UserDetails = ({ match, history }) => {
-  const userStore = useContext(UserContext);
+  const {users} = useContext(UserContext);
   const [user, setUser] = useState({});
   const [companies,setCompanies]=useState();
   const [company,setCompany]=useState();
   const [hasChanged,setChanged]=useState(false);
 
-  let userDetails = userStore.filter(user => user.Id === match.params.id);
+  let userDetails = users.filter(user => user.Id === match.params.id);
 
   useEffect(() => {
     axios.get("https://localhost:5001/api/company",{headers:{Authorization: `Bearer ${window.localStorage.getItem("jwt")}`}}).then(data => {

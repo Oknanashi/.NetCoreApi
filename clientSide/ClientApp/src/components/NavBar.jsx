@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { Menu, Container, Button } from "semantic-ui-react";
 import axios from "axios";
 import { NavLink, useHistory } from "react-router-dom";
 import styled from 'styled-components';
+import NotifyContext from './../App'
+import { UserConsumer } from "../UserContext";
+import UserContext from "./../UserContext";
 
 const JustyfiedContainer = styled.div`
   display:flex;
@@ -13,6 +16,9 @@ const JustyfiedContainer = styled.div`
 export const NavBar = ({ accessor, setToken }) => {
   let history = useHistory();
   const [user, setUser] = useState();
+  const {notifySuccess} = useContext(UserContext);
+  
+  
 
   //Token bug
 
@@ -25,7 +31,7 @@ export const NavBar = ({ accessor, setToken }) => {
       })
       .then(data => {
         setUser(data.data);
-        console.log(data.data);
+        
       });
   }, []);
   const logoutUser = () => {
@@ -33,15 +39,24 @@ export const NavBar = ({ accessor, setToken }) => {
     setToken(null);
     setUser(null);
     history.push("/");
+    notifySuccess("Logged out")
+    
   };
-  console.log(user)
+  
   return (
-    <Menu inverted>
+    
+      
+      <Menu inverted>
       <Container>
         <JustyfiedContainer style={{minWidth:"100%"}}>
+        <div>
         <Menu.Item header as={NavLink} exact to="/">
           Reactivities
         </Menu.Item>
+        <Menu.Item header as={NavLink} exact to="/contactus">
+          Contact Us
+        </Menu.Item>
+        </div>
         <div  style={{display:"flex"}}>
           {accessor == null ? (
             <div>
@@ -86,5 +101,7 @@ export const NavBar = ({ accessor, setToken }) => {
         </JustyfiedContainer>
       </Container>
     </Menu>
+   
   );
 };
+NavBar.contextType = UserConsumer;

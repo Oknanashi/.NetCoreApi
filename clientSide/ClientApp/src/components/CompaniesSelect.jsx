@@ -8,14 +8,17 @@ import Select from '@material-ui/core/Select';
 import axios from 'axios'
 
 
-export const CompaniesSelect = ({ userDetails,onChangeCompany,type }) => {
+export const CompaniesSelect = ({ userDetails,onChangeCompany,type,finalSubmit }) => {
     // const [user, setUser] = useState({});
 
   const [companies, setCompanies] = useState();
+  
   const [company, setCompany] = useState();
 //   const [hasChanged, setChanged] = useState(false);
+  
 
   useEffect(() => {
+    let isCancelled = false;
     axios
       .get("https://localhost:5001/api/company", {
         headers: {
@@ -23,17 +26,23 @@ export const CompaniesSelect = ({ userDetails,onChangeCompany,type }) => {
         }
       })
       .then(data => {
-        console.log(data.data.map(value => value.CompanyName));
-        setCompanies(data.data);
+        // console.log(data.data.map(value => value.CompanyName));
+        if(!isCancelled){
+          setCompanies(data.data);
+        }
+        
         
       });
+      return () => {
+        isCancelled = true;
+      };
     
         
     
   }, []);
 
   
-  console.log(type)
+  
   
   return (
     <div>
@@ -41,13 +50,14 @@ export const CompaniesSelect = ({ userDetails,onChangeCompany,type }) => {
       <h1>Companies</h1>
       {/* <Select placeholder='Change Role of the employee' options={companies} defaultValue={"Microsoft"}  /> */}
 
-      {type==="empty" || userDetails[0].EmployeeCompany===null ?(<Select
+      {type==="empty" || userDetails[0].EmployeeCompany===null ?(
+      <Select
         style={{ minWidth: "100%" }}
-        
+        defaultValue="DEFAULT"
         labelId="demo-simple-select-label"
         id="demo-simple-select"
         value={company}
-        onChange={onChangeCompany}
+        onChange={onChangeCompany,(e)=>finalSubmit(companies.find(x=>x.CompanyName==e.target.value))}
         
       >
         {companies.map(company => (
@@ -61,6 +71,7 @@ export const CompaniesSelect = ({ userDetails,onChangeCompany,type }) => {
           id="demo-simple-select"
           value={company}
           onChange={onChangeCompany}
+          
           defaultValue={userDetails[0].EmployeeCompany.CompanyName}
         >
           {companies.map(company => (

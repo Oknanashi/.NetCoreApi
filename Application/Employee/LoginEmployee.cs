@@ -8,6 +8,7 @@ using Application.Errors;
 using System.Net;
 using Application.Interfaces;
 using System.Linq;
+using System.ComponentModel.DataAnnotations;
 
 namespace Application.User
 {
@@ -15,7 +16,9 @@ namespace Application.User
     {
         public class Query : IRequest<Application.Employee.Employee>
         {
+            [Required]
             public string Email { get; set; }
+            [Required]
             public string Password { get; set; }
         }
 

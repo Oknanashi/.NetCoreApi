@@ -21,8 +21,8 @@ namespace KirillProject.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    [Authorize(Roles = "Admin,Manager")]
-    // [AllowAnonymous]
+    
+    
     
     public class HomeController : BaseController
     {
@@ -41,6 +41,7 @@ namespace KirillProject.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppUser>>> Get()
         {
 
@@ -67,7 +68,8 @@ namespace KirillProject.Controllers
             return await Mediator.Send(command);
         }
          [HttpPost("updateUser")]
-        [AllowAnonymous]
+         [AllowAnonymous]
+        
         public async Task<ActionResult<AppUser>> UpdateCompany(UpdateUser.Command command)
         {
             
@@ -82,6 +84,7 @@ namespace KirillProject.Controllers
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
             return await Mediator.Send(new Delete.Command { Id = id });

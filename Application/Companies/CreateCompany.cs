@@ -16,7 +16,7 @@ namespace Application.Companies
             public string CompanyName { get; set; }
             [Required]
             public string Address { get; set; }
-            [Required]
+            
             public string CompanySector { get; set; }
             
         }

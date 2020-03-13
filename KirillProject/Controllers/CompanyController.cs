@@ -22,8 +22,8 @@ namespace KirillProject.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    // [Authorize(Roles = "Admin,Manager")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Admin,Manager")]
+    
     
     public class CompanyController : BaseController
     {
@@ -42,6 +42,7 @@ namespace KirillProject.Controllers
 
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<AppCompany>>> Get()
         {
 
@@ -62,7 +63,7 @@ namespace KirillProject.Controllers
 
 
         [HttpPost("createCompany")]
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin,Manager")]
         public async Task<ActionResult<AppCompany>> CreateCompany(CreateCompany.Command command)
         {
             return await Mediator.Send(command);
@@ -83,6 +84,7 @@ namespace KirillProject.Controllers
         }
 
         [HttpDelete("{id}")]
+        
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
             return await Mediator.Send(new DeleteCompany.Command { Id = id });

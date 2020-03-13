@@ -1,4 +1,6 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain;
@@ -12,10 +14,17 @@ namespace Application.User
         public class Command : IRequest<AppUser>
         {
             public Guid Id { get; set; }
+            [Required]
             public string FirstName { get; set; }
+            [Required]
             public string LastName { get; set; }
+            [Required]
             public int Age { get; set; }
+            [Required]
             public string Bio { get; set; }
+
+
+            public AppCompany Company { get; set; }
         }
         // public class CommandValidator :AbstractValidator<Command>{
         //     public CommandValidator(){
@@ -36,6 +45,7 @@ namespace Application.User
 
             public async Task<AppUser> Handle(Command request, CancellationToken cancellationToken)
             {
+                CultureInfo en = new CultureInfo("en-EN");
                 var user = new AppUser
                 {
                     Id = Guid.NewGuid(),
@@ -43,16 +53,18 @@ namespace Application.User
                     LastName = request.LastName,
                     Age = request.Age,
                     Bio = request.Bio,
-                    CreatedAt=DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss")
+                    CreatedAt=DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss",en)
 
                 };
+                var company = await _context.Companies.FindAsync(request.Company.Id);
+                user.EmployeeCompany = company;
                 try{
-                    var result = await _context.AppUsers.AddAsync(user);
+                    await _context.AppUsers.AddAsync(user);
                 
                     await _context.SaveChangesAsync();
                     return user;
-                }catch{
-                     throw new Exception("Problem making user");
+                }catch(Exception error){
+                     throw new Exception("Problem saving cahnges",error);
                  }
                  
             }

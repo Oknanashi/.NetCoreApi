@@ -30,16 +30,17 @@ const CardExample = ({removeUser}) => {
   
 
   
-
+  
   return (
     <UserConsumer>
+      
       {context => 
       
       {
         
       return(<CenteredRow>
-       {context  ? 
-        context.map(user => (
+       {context.users  ? 
+        context.users.map(user => (
           <Card key={user.Id}>
             <Icon
               bordered
@@ -57,7 +58,7 @@ const CardExample = ({removeUser}) => {
               
             />
             <Card.Content>
-              <Card.Header>{user.FirstName}</Card.Header>
+              <Card.Header>{user.FirstName}  {user.LastName}</Card.Header>
               <Card.Meta>
                 <span className="date">Age : {user.Age}</span>
                 <br></br>

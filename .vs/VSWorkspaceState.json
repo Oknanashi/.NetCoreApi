@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\KirillProject.Tests",
-    "\\NUnitTestProject",
-    "\\NUnitTestProject\\NUnitTestProject"
+    ""
   ],
-  "SelectedNode": "\\NUnitTestProject\\NUnitTestProject\\RestSharpDemo.cs",
+  "SelectedNode": "\\obj",
   "PreviewInSolutionExplorer": true
 }

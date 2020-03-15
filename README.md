@@ -1,8 +1,8 @@
 # .NetCoreApi
 Role-based Authentication with Jwt
-This is a Development project for easy inspecting of the code
+This is project in a development state for easy inspecting of the code
 <br>
-The real one is being hosted on azure <br>
+The production one is being hosted on azure <br>
 Authentication, CRUD operations <br>
 CQRS with Mediatr<br>
 Entities with relations<br>
